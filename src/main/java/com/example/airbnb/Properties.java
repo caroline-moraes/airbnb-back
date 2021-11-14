@@ -14,18 +14,22 @@ public class Properties {
 	private String name;
 	private String description;
 	private String localization;
+	private double price;
+	private String host;
 	
 	protected Properties() {}
 	
-	public Properties(String name, String description, String localization) {
+	public Properties(String name, String description, String localization, double price, String host) {
 	    this.name = name;
 	    this.description = description;
 	    this.localization = localization;
+	    this.price = price;
+	    this.host = host;
     }
 	
 	@Override
 	public String toString() {
-		return String.format("Accommodation[id=%d, name='%s', description='%s', localization='%s']", id, name, description, localization);
+		return String.format("Accommodation[id=%d, name='%s', description='%s', localization='%s', price='%f', host='%s']", id, name, description, localization, price, host);
 	}
 
 	public Long getId() {
@@ -58,6 +62,22 @@ public class Properties {
 
 	public void setLocalization(String localization) {
 		this.localization = localization;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public String getHost() {
+		return host;
+	}
+
+	public void setHost(String host) {
+		this.host = host;
 	}
 	
 }

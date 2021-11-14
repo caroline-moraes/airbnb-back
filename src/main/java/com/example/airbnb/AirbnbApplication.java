@@ -19,9 +19,9 @@ public class AirbnbApplication {
 	@Bean
 	public CommandLineRunner demo(PropertiesRepository repository) {
 		return (args) -> {
-			repository.save(new Properties("Flat vista para o mar", "Estacionamento gratuito - Wi-fi - Cozinha - Ar condicionado", "Torres"));
-			repository.save(new Properties("Apartamento vista para o mar", "Estacionamento gratuito - Wi-fi - Cozinha - Ar condicionado", "Torres"));
-			repository.save(new Properties("Casa moderna vista para o mar", "Estacionamento gratuito - Wi-fi - Cozinha - Ar condicionado", "Torres"));
+			repository.save(new Properties("Flat vista para o mar", "Estacionamento gratuito - Wi-fi - Cozinha - Ar condicionado", "Torres", 309.00, "Caroline Moraes"));
+			repository.save(new Properties("Apartamento vista para o mar", "Estacionamento gratuito - Wi-fi - Cozinha - Ar condicionado", "Torres", 459.00, "Caroline Moraes"));
+			repository.save(new Properties("Casa moderna vista para o mar", "Estacionamento gratuito - Wi-fi - Cozinha - Ar condicionado", "Torres", 699.00, "Caroline Moraes"));
 			
 			log.info("Accommodations found with findAll():");
 		    log.info("-------------------------------");
