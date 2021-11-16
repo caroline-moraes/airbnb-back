@@ -31,7 +31,7 @@ public class PropertiesController {
 	}
 	
 	
-	@RequestMapping(value = "/{hostName}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "details-host//{hostName}", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<List<Properties>> getProperties(@PathVariable("hostName") String host) {
 		List<Properties> propObj = repository.findByHost(host);
 		if(host == null) {
