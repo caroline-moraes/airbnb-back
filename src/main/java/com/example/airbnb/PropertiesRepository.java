@@ -1,12 +1,16 @@
 package com.example.airbnb;
 
 import java.util.List;
-import org.springframework.data.repository.CrudRepository;
+//import java.util.Optional;
 
-public interface PropertiesRepository extends CrudRepository<Properties, Long> {
+import org.springframework.data.jpa.repository.JpaRepository;
+//import org.springframework.data.repository.CrudRepository;
+
+public interface PropertiesRepository extends JpaRepository<Properties, Long> {
 
 	List<Properties> findAll();
-	List<Properties> findByLocalization(String localization);
 	List<Properties> findByHost(String host);
+	List<Properties> findByLocation(String location);
+	Properties findById(long id);
 	
 }

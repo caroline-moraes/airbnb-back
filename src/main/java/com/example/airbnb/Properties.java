@@ -13,23 +13,33 @@ public class Properties {
 	private Long id;
 	private String name;
 	private String description;
-	private String localization;
+	private String location;
 	private double price;
 	private String host;
+	private boolean reserved;
 	
 	protected Properties() {}
 	
-	public Properties(String name, String description, String localization, double price, String host) {
+	public Properties(String name, String description, String location, double price, String host, boolean reserved) {
 	    this.name = name;
 	    this.description = description;
-	    this.localization = localization;
+	    this.location = location;
 	    this.price = price;
 	    this.host = host;
+	    this.reserved = reserved;
     }
 	
+	public boolean isReserved() {
+		return reserved;
+	}
+
+	public void setReserved(boolean reserved) {
+		this.reserved = reserved;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("Accommodation[id=%d, name='%s', description='%s', localization='%s', price='%f', host='%s']", id, name, description, localization, price, host);
+		return String.format("Accommodation[id=%d, name='%s', description='%s', location='%s', price='%f', host='%s']", id, name, description, location, price, host);
 	}
 
 	public Long getId() {
@@ -57,11 +67,11 @@ public class Properties {
 	}
 
 	public String getLocalization() {
-		return localization;
+		return location;
 	}
 
-	public void setLocalization(String localization) {
-		this.localization = localization;
+	public void setLocalization(String location) {
+		this.location = location;
 	}
 
 	public double getPrice() {

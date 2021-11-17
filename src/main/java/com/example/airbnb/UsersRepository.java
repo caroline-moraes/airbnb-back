@@ -8,4 +8,5 @@ public interface UsersRepository extends CrudRepository<Users, Long> {
 
 	List<Users> findAll();
 	Users findByName(String name);
+	Users findById(long id);
 }

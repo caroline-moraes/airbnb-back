@@ -25,10 +25,15 @@ public class UsersController {
 			return repository.findAll();
 	}
 	
+	/*GET usuário por id*/
+	@RequestMapping(value = "/allUsers/{id}", method = RequestMethod.GET, produces = "application/json")
+	public Users getAllUsersId(@PathVariable("id") long id) {
+			return repository.findById(id);
+	}
 	
-	@PostMapping("/users")
-	  Users newUsers(@RequestBody Users newUsers) {
-	    return repository.save(newUsers);
+	@RequestMapping(value = "/allUsers", method = RequestMethod.POST)
+	public Users create(@RequestBody Users user){
+	   return repository.save(user);
 	}
 
 }
