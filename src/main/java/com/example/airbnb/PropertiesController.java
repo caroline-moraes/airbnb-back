@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
@@ -31,13 +33,18 @@ public class PropertiesController {
 	}
 	
 	
-	@RequestMapping(value = "details-host//{hostName}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "details-host/{hostName}", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<List<Properties>> getProperties(@PathVariable("hostName") String host) {
 		List<Properties> propObj = repository.findByHost(host);
 		if(host == null) {
 			return new ResponseEntity<List<Properties>>(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<List<Properties>>(propObj, HttpStatus.OK);
+	}
+	
+	@PostMapping("/properties")
+	  Properties newProperty(@RequestBody Properties newProperty) {
+	    return repository.save(newProperty);
 	}
 	
 }
